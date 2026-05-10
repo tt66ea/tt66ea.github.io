@@ -7,6 +7,9 @@
 = 博客 / Blog
 
 中文博客样例可参考 #link("https://yousa-mirage.github.io/Blog")[我的个人网站]。
+== 2026
+
+- #link("2026-05-10-typst-test/")[Typst-test]
 
 == 2025
 
