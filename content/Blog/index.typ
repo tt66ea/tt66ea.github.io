@@ -8,7 +8,11 @@
 
 中文博客样例可参考 #link("https://yousa-mirage.github.io/Blog")[我的个人网站]。
 
+== OI/ACM题解
+
+- #link("XJTUPC 2026/")[XJTUPC 2026部分题解]
+
 == 未分类
 
-- #link("test/")[typst-test]
 - #link("tmp/")[1]
+- #link("test/")[test]
