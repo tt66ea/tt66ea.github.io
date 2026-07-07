@@ -65,6 +65,9 @@
           feed-dir: feed-dir,
         )
 
+        // favicon
+        html.link(rel: "icon", href: "/assets/icon_morfonica.svg", type: "image/svg+xml")
+
         // load CSS
         let base-css = (
           "https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css",
