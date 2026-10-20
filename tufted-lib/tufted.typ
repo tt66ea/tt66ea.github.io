@@ -2,13 +2,16 @@
 #import "refs.typ": template-refs
 #import "notes.typ": template-notes
 #import "figures.typ": template-figures
+#import "blog-entry.typ": blog-entry
 #import "layout.typ": full-width, margin-note
 #import "links.typ": template-links
 #import "metadata.typ": metadata
+#import "byline.typ": template-byline
 
-/// Tufted 博客模板的主包装函数。
+/// The main wrapper function of Tufted Blog Template.
 ///
-/// 用于生成完整的 HTML 页面结构，包含 SEO 元数据、CSS/JS 资源加载以及页眉页脚布局。
+/// Used to generate a complete HTML page structure,
+/// including SEO metadata, CSS/JS resource loading, and header and footer layout.
 #let tufted-web(
   header-links: (:),
 
@@ -18,7 +21,7 @@
   description: "",
   lang: "zh",
   date: none,
-  tags: (),
+  extra-info: none,
   website-title: "",
   website-url: none,
 
@@ -36,6 +39,9 @@
   css: ("/assets/custom.css",),
   js-scripts: (),
 
+  // Copy bibliography entries into the margin next to author-date citations
+  margin-citations: false,
+
   content,
 ) = {
   // Apply styling
@@ -44,8 +50,15 @@
   show: template-notes
   show: template-figures
   show: template-links
+  show: template-byline.with(author: author, date: date, extra-info: extra-info)
 
   set text(lang: lang)
+  set raw(syntaxes: (
+    "custom-syntaxes/Just.sublime-syntax",
+    "custom-syntaxes/Mermaid.sublime-syntax",
+    "custom-syntaxes/JSON5.sublime-syntax",
+    "custom-syntaxes/JSONC.sublime-syntax",
+  ))
 
   html.html(
     lang: lang,
@@ -65,9 +78,6 @@
           feed-dir: feed-dir,
         )
 
-        // favicon
-        html.link(rel: "icon", href: "/assets/icon_morfonica.svg", type: "image/svg+xml")
-
         // load CSS
         let base-css = (
           "https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css",
@@ -84,10 +94,16 @@
           "/assets/format-headings.js",
           "/assets/theme-toggle.js",
           "/assets/marginnote-toggle.js",
+          "/assets/toc.js",
+          "/assets/back-to-top.js",
+          "/assets/math-copy.js",
         )
         for (js-src) in (base-js + js-scripts).dedup() {
           html.script(src: js-src)
         }
+        // Must run before sidenote-layout.js so the new notes get laid out
+        if margin-citations { html.script(type: "module", src: "/assets/cite-margin.js") }
+        html.script(type: "module", src: "/assets/sidenote-layout.js")
       })
 
       // Body
@@ -108,14 +124,26 @@
         // Add website navigation
         html.header(
           class: "site-header",
-          if header-links != none and header-links.len() > 0 {
+          if header-links != none {
             html.nav(
               class: "site-nav",
-              for (href, title) in header-links {
-                html.a(href: href, title)
+              {
+                for (href, title) in header-links {
+                  html.a(href: href, title)
+                }
+                html.elem(
+                  "button",
+                  attrs: (
+                    id: "theme-toggle",
+                    class: "theme-toggle-btn",
+                    type: "button",
+                    aria-label: "Toggle theme",
+                  ),
+                  "",
+                )
               },
             )
-          }
+          },
         )
 
         // Main content
