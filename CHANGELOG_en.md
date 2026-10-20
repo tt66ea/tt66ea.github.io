@@ -6,8 +6,37 @@
 
 Development updates will be recorded here.
 
+- Fix: Fixed the style of mathematical formulas in paragraph blocks (#43, @karuboniru)
+- Fix: Fixed the blog index width on mobile devices (#45, @karuboniru)
+- Feature: Added the `margin-citations` parameter to show full entries of author-date citations (e.g. APA) in the margin (#24, @lukezed)
+- Feature: Added syntax highlighting for Justfile, Mermaid, JSON5, and JSONC code blocks through custom Sublime syntax definitions
+
+## v1.3.0
+
+- feat: support HTML MathML formula output with Typst 0.15 and later while keeping SVG formula styles compatible with older versions ([#40](https://github.com/Yousa-Mirage/Tufted-Blog-Template/issues/40))
+- feat: add click-to-copy MathML support for inline and block formulas
+- fix: fix centering and width display for `tufted.full-width()`
+
+## v1.2.0
+
+- feat: show author, date, and optional extra information below the first level-one heading of articles ([#35](https://github.com/Yousa-Mirage/Tufted-Blog-Template/pull/35), [@tortrixx](https://github.com/tortrixx))
+- feat: Added `tufted.blog-entry()` function to generate blog index entries with date columns. For a preview of the effect, see [Blog Page](https://tufted-blog.pages.dev/Blog/)
+- feat: optimize image loading logic by converting images to static resources and enabling lazy loading by default ([#31](https://github.com/Yousa-Mirage/Tufted-Blog-Template/pull/31), [@CST-Cat](https://github.com/CST-Cat))
+- fix: optimize the display of the table of contents ([#39](https://github.com/Yousa-Mirage/Tufted-Blog-Template/pull/39), [@CST-Cat](https://github.com/CST-Cat))
+- fix: rename the back-to-top button DOM identifiers to avoid accidental blocking
+- fix: Excluded `CHANGELOG.md` and `CHANGELOG_en.md` from template-sync
+
+## v1.1.0
+
+Development updates will be recorded here.
+
 - feat: introduce an auto-update workflow based on [actions-template-sync](https://github.com/marketplace/actions/actions-template-sync) ([#28](https://github.com/Yousa-Mirage/Tufted-Blog-Template/pull/28), [@HerveyB3B4](https://github.com/HerveyB3B4))
+- feat: add back-to-top button ([#32](https://github.com/Yousa-Mirage/Tufted-Blog-Template/issues/32))
+- feat: add blog entry function to display blog entries on the blog index page (thanks [@etiennebacher](https://github.com/etiennebacher))
+- feat: automatically generate table of contents for pages with ≥3 secondary headings
 - fix: fix theme toggle issue where reopening the webpage automatically follows the system theme instead of the last manually selected theme
+- refactor: move theme toggle button element from JS script to Typst generation (thanks [@etiennebacher](https://github.com/etiennebacher))
+- chore: use biome for code linting and formatting
 
 ## v1.0.0
 

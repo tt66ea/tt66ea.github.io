@@ -6,8 +6,35 @@
 
 开发中的更新内容将在此记录。
 
+- 修复：修复了段落块中的数学公式样式 (#43, @karuboniru)
+- 修复：修复了移动端的博客索引宽度 (#45, @karuboniru)
+- 功能：新增 `margin-citations` 参数，将 APA 等 author-date 风格引用的完整条目显示在边栏中 (#24, @lukezed)
+- 功能：通过自定义 Sublime 语法定义为代码块新增 Justfile、Mermaid、JSON5 和 JSONC 语法高亮支持
+
+## v1.3.0
+
+- 功能：支持 Typst 0.15 及之后版本的 HTML MathML 公式导出，并兼容旧版本的 SVG 公式样式（[#40](https://github.com/Yousa-Mirage/Tufted-Blog-Template/issues/40)）
+- 功能：为行内和块级公式添加点击复制 MathML 功能
+- 修复：修复了 `tufted.full-width()` 的居中和宽度显示
+
+## v1.2.0
+
+- 功能：在文章第一个一级标题下方显示作者、日期和可选的额外信息（[#35](https://github.com/Yousa-Mirage/Tufted-Blog-Template/pull/35), [@tortrixx](https://github.com/tortrixx)）
+- 功能：新增导出的 `tufted.blog-entry()` 函数，用于生成带日期栏的博客索引条目，效果预览见 [Blog 页面](https://tufted-blog.pages.dev/Blog/)
+- 功能：优化了图片加载逻辑，图片转为静态资源并默认懒加载（[#31](https://github.com/Yousa-Mirage/Tufted-Blog-Template/pull/31), [@CST-Cat](https://github.com/CST-Cat)）
+- 修复：优化了目录显示效果（[#39](https://github.com/Yousa-Mirage/Tufted-Blog-Template/pull/39), [@CST-Cat](https://github.com/CST-Cat))
+- 修复：调整返回顶部按钮的 DOM 标识，避免被误拦截
+- 修复：在 template-sync 中排除了 `CHANGELOG.md` 和 `CHANGELOG_en.md`
+
+## v1.1.0
+
 - 功能：引入了基于 [actions-template-sync](https://github.com/marketplace/actions/actions-template-sync) 的自动更新工作流（[#28](https://github.com/Yousa-Mirage/Tufted-Blog-Template/pull/28), [@HerveyB3B4](https://github.com/HerveyB3B4)）
+- 功能：添加了返回顶部按钮（[#32](https://github.com/Yousa-Mirage/Tufted-Blog-Template/issues/32)）
+- 功能：增加了 Blog 的 Entry 函数，用于在博客索引页面显示博客条目（感谢 [@etiennebacher](https://github.com/etiennebacher)）
+- 功能：为 ≥3 个二级标题的页面自动生成目录
 - 修复：修复主题切换问题，重新打开网页时会自动跟随系统主题，而不是使用上次手动选择的主题
+- 重构：将主题切换按钮元素从 JS 脚本中插入移动到 Typst 生成（感谢 [@etiennebacher](https://github.com/etiennebacher)）
+- 杂项：使用 biome 进行了代码检查和格式化。
 
 ## v1.0.0
 
