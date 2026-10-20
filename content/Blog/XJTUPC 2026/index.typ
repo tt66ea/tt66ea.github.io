@@ -5,7 +5,6 @@
   description: "XJTUPC的部分题解",
   date: datetime(year: 2026, month: 7, day: 6),
   lang: "zh",
-  tags: ("OI-ACM"),
 )
 
 #import "@preview/theorion:0.6.0": *
