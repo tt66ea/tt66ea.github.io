@@ -6,6 +6,7 @@
 
 Development updates will be recorded here.
 
+- Feature: Use `tufted.blog-entry()` for dated blog index entries while preserving existing categories, links, and test pages.
 - Fix: Serve the Morfonica favicon through the template-sync-protected `assets/favicon.ico` path and remove the extra SVG icon link from the template.
 - Fix: Fixed the style of mathematical formulas in paragraph blocks (#43, @karuboniru)
 - Fix: Fixed the blog index width on mobile devices (#45, @karuboniru)
