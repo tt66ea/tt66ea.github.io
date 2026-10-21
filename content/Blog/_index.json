@@ -1,0 +1,27 @@
+[
+  {
+    "category": "OI-ACM",
+    "posts": [
+      {
+        "date": "2026-07-06",
+        "path": "XJTUPC 2026/",
+        "title": "XJTUPC 2026部分题解"
+      }
+    ]
+  },
+  {
+    "category": "未分类",
+    "posts": [
+      {
+        "date": "2026-05-11",
+        "path": "tmp/",
+        "title": "1"
+      },
+      {
+        "date": "2026-04-16",
+        "path": "test/",
+        "title": "test"
+      }
+    ]
+  }
+]

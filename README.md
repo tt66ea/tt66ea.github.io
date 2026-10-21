@@ -1,5 +1,26 @@
 # Tufted Blog Template
 
+## 本站文章管理
+
+统一入口为 `~/bin/typst-blog`，指向本仓库 `tools/blog.py`；旧的 `typst-new-post`、`typst-import`、`typst-reindex` 已退役。
+
+```sh
+~/bin/typst-blog import /path/to/文章.typ
+# 不指定文件则用 yazi 选择，按提示填写标题、日期和分类
+~/bin/typst-blog import
+```
+
+导入会复制正文、生成 `_post.json` 并更新 `_index.json`，不会自动提交或发布。导入后编辑 `content/Blog/<slug>/index.typ`；标题、日期、描述、语言和分类编辑同目录的 `_post.json`。原始草稿后续修改不会自动同步。已有目录禁止覆盖，图片及 include 等相对依赖需自行准备。
+
+```sh
+cd ~/tt66ea.github.io
+~/bin/typst-blog reindex
+~/bin/typst-blog check
+uv run build.py build -f
+```
+
+文章正文不需自行添加模板头。元数据中的 `categories` 不传给上游模板；目录页读取生成数据，不由脚本改写。确认构建后，仅提交相关源文件并推送 `main`，GitHub Actions 会先检查一致性再构建发布；不要提交 `_site/`。
+
 <div align="center">
 
 [![GitHub stars](https://img.shields.io/github/stars/Yousa-Mirage/Tufted-Blog-Template?style=social)](https://github.com/Yousa-Mirage/Tufted-Blog-Template/stargazers)

@@ -1,5 +1,11 @@
 # Tufted Blog Template
 
+## Site article management
+
+`~/bin/typst-blog` points to this repository's `tools/blog.py`. The legacy new-post/import/reindex scripts are retired. Run `~/bin/typst-blog import FILE.typ` (or omit the file to select with yazi), then edit the copied body in `content/Blog/<slug>/index.typ` and metadata in `_post.json`. Imports regenerate the index, never overwrite existing targets, and never commit or push automatically. Relative resource dependencies must be prepared separately.
+
+After metadata edits run `~/bin/typst-blog reindex`, then `~/bin/typst-blog check` and `uv run build.py build -f` from the repository root. Commit only relevant sources and push main to deploy; do not commit `_site/`. Articles and index entries share JSON metadata, while the deployment workflow checks consistency before building.
+
 <div align="center">
 
 [![GitHub stars](https://img.shields.io/github/stars/Yousa-Mirage/Tufted-Blog-Template?style=social)](https://github.com/Yousa-Mirage/Tufted-Blog-Template/stargazers)

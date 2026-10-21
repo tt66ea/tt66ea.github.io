@@ -1,11 +1,5 @@
-#import "../index.typ": template, tufted
-
-#show: template.with(
-  title: "test",
-  description: "test",
-  date: datetime(year: 2026, month: 4, day: 16),
-  lang: "zh",
-)
+#import "/site-lib/post.typ": post-template, tufted
+#show: post-template.with(json("_post.json"))
 
 #set text(font: "Hack", size: 12pt)
 

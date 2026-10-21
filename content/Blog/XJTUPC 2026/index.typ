@@ -1,11 +1,5 @@
-#import "../index.typ": template, tufted
-
-#show: template.with(
-  title: "XJTUPC 2026部分题解",
-  description: "XJTUPC的部分题解",
-  date: datetime(year: 2026, month: 7, day: 6),
-  lang: "zh",
-)
+#import "/site-lib/post.typ": post-template, tufted
+#show: post-template.with(json("_post.json"))
 
 #import "@preview/theorion:0.6.0": *
 #show: show-theorion

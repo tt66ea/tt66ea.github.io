@@ -1,11 +1,5 @@
-#import "../index.typ": template, tufted
-
-#show: template.with(
-  title: "1",
-  description: "",
-  date: datetime(year: 2026, month: 5, day: 11),
-  lang: "zh",
-)
+#import "/site-lib/post.typ": post-template, tufted
+#show: post-template.with(json("_post.json"))
 
 = First time to See Typst!
 

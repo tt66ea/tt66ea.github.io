@@ -2,6 +2,12 @@
 content/
 config.typ
 
+# User-owned blog tooling and metadata adapter
+tools/
+site-lib/
+examples/
+.github/workflows/deploy.yml
+
 # User-owned styling / branding
 assets/custom.css
 assets/favicon.ico
