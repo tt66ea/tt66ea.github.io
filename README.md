@@ -21,6 +21,21 @@ uv run build.py build -f
 
 文章正文不需自行添加模板头。元数据中的 `categories` 不传给上游模板；目录页读取生成数据，不由脚本改写。确认构建后，仅提交相关源文件并推送 `main`，GitHub Actions 会先检查一致性再构建发布；不要提交 `_site/`。
 
+### 定理与证明的网页适配
+
+需要 `theorion` 的文章，在元数据模板头之后使用：
+
+```typst
+#import "@preview/theorion:0.6.0": theorem, theorem-box, quote-block
+#import "/site-lib/theorion.typ": proof, show-theorion
+#show: show-theorion
+```
+
+正文继续使用 `#theorem-box`、`#theorem` 和 `#proof`；不要再从原包导入同名的 `proof`、`show-theorion`。当前适配覆盖定理与证明，不会自动适配其他预设环境。
+
+适配逻辑与样式均位于 `site-lib/theorion.typ`、`site-lib/theorion.css`：HTML 环境使用正文栏宽度，保留右侧旁注，禁用会留下空段落的纸面缩进补偿；嵌套环境、公式和代码块不重复缩窄。样式编译为页面自带的 stylesheet 链接，无需复制静态文件；PDF 仍使用上游行为。`site-lib/` 已排除模板同步，但更新主题或 `theorion` 后仍应预览定理、证明和脚注。
+
+
 <div align="center">
 
 [![GitHub stars](https://img.shields.io/github/stars/Yousa-Mirage/Tufted-Blog-Template?style=social)](https://github.com/Yousa-Mirage/Tufted-Blog-Template/stargazers)

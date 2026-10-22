@@ -6,6 +6,7 @@
 
 Development updates will be recorded here.
 
+- Fix: Add a local theorion HTML adapter in `site-lib/` so theorems and proofs stay out of the margin-note column and no longer leave indentation-repair paragraphs; preserve references, nesting, and PDF behavior without changing upstream template or package files.
 - Feature: Adopt unified article tooling and JSON metadata for articles and index entries, with a read-only pre-deployment consistency check; preserve existing bodies, categories, URLs, and RSS.
 - Feature: Use `tufted.blog-entry()` for dated blog index entries while preserving existing categories, links, and test pages.
 - Fix: Serve the Morfonica favicon through the template-sync-protected `assets/favicon.ico` path and remove the extra SVG icon link from the template.

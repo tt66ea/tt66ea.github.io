@@ -1,7 +1,8 @@
 #import "/site-lib/post.typ": post-template, tufted
 #show: post-template.with(json("_post.json"))
 
-#import "@preview/theorion:0.6.0": *
+#import "@preview/theorion:0.6.0": quote-block, theorem-box
+#import "/site-lib/theorion.typ": proof, show-theorion
 #show: show-theorion
 = XJTUPC 2026题解
 实际上我参与了这场的验题，但是是为了确保低水平选手被区分下去（。

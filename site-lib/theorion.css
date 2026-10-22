@@ -1,0 +1,27 @@
+/* Match Tufte's text column without constraining unrelated block elements. */
+.theorion-environment {
+	width: 55%;
+	margin: 1.4rem 0;
+	font-size: 1.4rem;
+	line-height: 2.2rem;
+}
+
+.theorion-environment .theorion-environment {
+	width: 100%;
+}
+
+/* These theme elements normally size themselves against the whole section. */
+.theorion-environment :is(figure, .math-block, pre) {
+	width: 100%;
+	max-width: 100%;
+}
+
+.theorion-environment div[style*="border-inline-start"] {
+	width: 100% !important;
+}
+
+@media (max-width: 760px) {
+	.theorion-environment {
+		width: 100%;
+	}
+}

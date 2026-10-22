@@ -6,6 +6,21 @@
 
 After metadata edits run `~/bin/typst-blog reindex`, then `~/bin/typst-blog check` and `uv run build.py build -f` from the repository root. Commit only relevant sources and push main to deploy; do not commit `_site/`. Articles and index entries share JSON metadata, while the deployment workflow checks consistency before building.
 
+### Theorem and proof HTML adapter
+
+After the article metadata template header, use:
+
+```typst
+#import "@preview/theorion:0.6.0": theorem, theorem-box, quote-block
+#import "/site-lib/theorion.typ": proof, show-theorion
+#show: show-theorion
+```
+
+Keep using `#theorem`, `#theorem-box`, and `#proof` in the body; do not also import the original `proof` or `show-theorion`. The adapter currently covers theorems and proofs, not every preset environment.
+
+Both implementation and styles live in `site-lib/theorion.typ` and `site-lib/theorion.css`. HTML environments follow the text column, retain margin notes, and disable print indentation repair that otherwise leaves empty paragraphs. Nested environments, equations, and code blocks are not narrowed twice. The stylesheet is embedded as a data-URL link, so no static asset copy is needed; PDF uses upstream behavior. Template sync excludes `site-lib/`, but preview theorems, proofs, and footnotes after theme or package updates.
+
+
 <div align="center">
 
 [![GitHub stars](https://img.shields.io/github/stars/Yousa-Mirage/Tufted-Blog-Template?style=social)](https://github.com/Yousa-Mirage/Tufted-Blog-Template/stargazers)
